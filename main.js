@@ -1,17 +1,23 @@
-//funções para tocar aluramidi
-
-function tocaSomPom() {
-  document.querySelector("#som_tecla_pom").play();
+function tocaSom(idElementAudio) {
+  document.querySelector(idElementAudio).play();
 }
 
 const listaDeTeclas = document.querySelectorAll(".tecla");
 
-let contador = 0;
+let contadorDeTeclas = 0;
 
-while (contador < listaDeTeclas.length) {
-  listaDeTeclas[contador].onclick = tocaSomPom;
+while (contadorDeTeclas < listaDeTeclas.length) {
+  const tecla = listaDeTeclas[contadorDeTeclas];
 
-  contador = contador + 1;
+  const instrumento = tecla.classList[1];
 
-  console.log(contador);
+  const idAudio = `#som_${instrumento}`;
+  //console.log(idAudio);
+
+  tecla.onclick = function () {
+    tocaSom(idAudio);
+  };
+
+  contadorDeTeclas = contadorDeTeclas + 1;
+  //console.log(contadorDeTeclas);
 }
