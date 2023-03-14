@@ -1,12 +1,10 @@
 function tocaSom(seletorAudio) {
   const elemento = document.querySelector(seletorAudio);
 
-  if (elemento === null) {
-    alert("batata");
-  }
-
-  if (elemento != null) {
+  if (elemento != null && elemento.localName === "audio") {
     elemento.play();
+  } else {
+    alert("Elemento não Encontrato ou seletor inválido");
   }
 }
 
